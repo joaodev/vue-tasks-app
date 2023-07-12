@@ -7,12 +7,16 @@ import { csrfCookie, login, register, logout, getUser } from '../http/auth-api';
     const isLoggedIn = computed(() => !!user.value);
 
     const fetchUser = async () => {
-        const { data } = await getUser();
-        user.value = data;
+        try {
+            const { data } = await getUser();
+            user.value = data;
+        } catch (error) {
+            user.value = null;
+        }
     }
 
     const handleLogin = async (credentials) => {
-        await csrfCookie;
+        await csrfCookie();
         await login(credentials);
         await fetchUser();
     }
