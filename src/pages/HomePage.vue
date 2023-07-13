@@ -3,10 +3,20 @@
         <h1 class="display-5 fw-bold mt-4">Stay Organized, be productive</h1>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Organize your ideas, and be productive everyday.</p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"
+                v-if="!store.isLoggedIn">
                 <router-link :to="{ name: 'register' }" class="btn btn-primary btn-lg px-4 gap-3">Sign up</router-link>
                 <router-link :to="{ name: 'login' }" class="btn btn-outline-secondary btn-lg px-4">Sign in</router-link>
+            </div>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"
+                v-else>
+                <router-link :to="{ name: 'tasks' }" class="btn btn-primary btn-lg px-4 gap-3">Go to My Tasks</router-link>
             </div>
         </div>
     </main>
 </template>
+<script setup>
+    import { useAuthStore } from '../stores/auth';
+
+    const store = useAuthStore();
+</script>

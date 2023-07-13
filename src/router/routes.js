@@ -1,5 +1,6 @@
 import HomePage from '../pages/HomePage.vue';
-import TaskPage from '../pages/TasksPage.vue';
+import UsersPage from '../pages/UsersPage.vue';
+import TasksPage from '../pages/TasksPage.vue';
 import LoginPage from '../pages/LoginPage.vue';
 import RegisterPage from '../pages/RegisterPage.vue';
 import SummaryPage from '../pages/SummaryPage.vue';
@@ -13,8 +14,16 @@ const routes = [
     },
     {
         path: "/tasks",
-        component: TaskPage,
+        component: TasksPage,
         name: 'tasks',
+        meta: {
+            auth: true
+        }
+    },
+    {
+        path: "/users",
+        component: UsersPage,
+        name: 'users',
         meta: {
             auth: true
         }
@@ -33,14 +42,6 @@ const routes = [
         name: 'register',
         meta: {
             guest: true
-        }
-    },
-    {
-        path: "/summary",
-        component: SummaryPage,
-        name: 'summary',
-        meta: {
-            auth: true
         }
     },
     {

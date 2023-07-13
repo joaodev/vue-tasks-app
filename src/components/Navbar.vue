@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div class="container py-2">
             <router-link :to="{ name: 'home' }" class="navbar-brand">
-                <span>Tasks</span>
+                <span>Vue Tasks </span>
                 <strong>App</strong>
             </router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -12,10 +12,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav" v-if="store.isLoggedIn">
                     <li class="nav-item">
-                        <router-link :to="{ name: 'tasks' }" class="nav-link">Tasks</router-link>
+                        <router-link :to="{ name: 'users' }" class="nav-link">Users</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link :to="{ name: 'summary' }" class="nav-link">Summary</router-link>
+                        <router-link :to="{ name: 'tasks' }" class="nav-link">Tasks</router-link>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
